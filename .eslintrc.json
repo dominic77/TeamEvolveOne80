@@ -1,0 +1,33 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": "plugin:react/recommended",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "modules": true,
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-native"
+    ],
+    "rules": {
+        "indent": ["error", "tab"],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+
+        "react/jsx-uses-vars": ["error"],
+        "react/react-in-jsx-scope": ["error"],
+
+        "react-native/no-unused-styles": ["error"],
+        "react-native/split-platform-components": ["error"],
+        "react-native/no-inline-styles": ["error"],
+        "react-native/no-color-literals": ["error"]
+    }
+}
