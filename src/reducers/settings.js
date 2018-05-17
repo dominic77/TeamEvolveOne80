@@ -1,4 +1,4 @@
-import { CHANGE_START_DATE } from '../actions/action-types';
+import { CHANGE_START_DATE } from '../constants/actions';
 
 const handlers = {};
 const initialState = {

@@ -1,4 +1,4 @@
-import { CHANGE_START_DATE } from './action-types';
+import { CHANGE_START_DATE } from '../constants/actions';
 
 export const changeStartDate = (date) => {
 	return {
