@@ -23,17 +23,17 @@ const MainBare = (props) => {
 			</Content>
 			<Footer>
 				<FooterTab>
-					<Button>
-						<Icon name="settings" onPress={onSettingsClick} active={location === MAIN_LOCATION_SETTINGS} />
+					<Button onPress={onSettingsClick}>
+						<Icon name="settings" active={location === MAIN_LOCATION_SETTINGS} />
 					</Button>
-					<Button>
-						<Icon name="person" onPress={onMyStatsClick} active={location === MAIN_LOCATION_MYSTATS} />
+					<Button onPress={onMyStatsClick}>
+						<Icon name="person" active={location === MAIN_LOCATION_MYSTATS} />
 					</Button>
-					<Button>
-						<Icon name="paper" onPress={onDietPlanClick} active={location === MAIN_LOCATION_DIETPLAN} />
+					<Button onPress={onDietPlanClick}>
+						<Icon name="paper" active={location === MAIN_LOCATION_DIETPLAN} />
 					</Button>
-					<Button>
-						<Icon name="restaurant" onPress={onFoodMenuClick} active={location === MAIN_LOCATION_FOODMENU} />
+					<Button onPress={onFoodMenuClick}>
+						<Icon name="restaurant" active={location === MAIN_LOCATION_FOODMENU} />
 					</Button>
 				</FooterTab>
 			</Footer>

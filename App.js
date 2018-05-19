@@ -1,15 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import store from './src/store/initialize-store';
 import { Provider } from 'react-redux';
+import { StyleProvider, getTheme } from 'native-base';
 import Main from './src/containers/main';
+import store from './src/store/initialize-store';
 
+import platform from './native-base-theme/variables/platform';
 
 export default class App extends React.Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<Main />
+				<StyleProvider style={getTheme(platform)}>
+					<Main />
+				</StyleProvider>
 			</Provider>
 		);
 	}
