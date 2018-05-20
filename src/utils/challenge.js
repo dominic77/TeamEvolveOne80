@@ -1,5 +1,5 @@
 import * as dates from './dates';
-import { phaseDays } from '../constants/challenge';
+import { phaseDays, challengePlan } from '../constants/challenge';
 
 const validateDay = (day) => (day > 0 && day <= phaseDays.length);
 
@@ -15,4 +15,10 @@ export const getChallengePhase = (startDate) => {
 	}
 
 	return phaseDays[day-1].phase;
+};
+
+export const getChallengeEvents = (startDate) => {
+	const phase = getChallengePhase(startDate);
+
+	return challengePlan[phase];
 };

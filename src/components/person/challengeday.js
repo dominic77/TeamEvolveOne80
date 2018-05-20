@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Card, CardItem, Body, Text, H1 } from 'native-base';
-import { formatDate, challengeDay } from '../../utils/dates';
+import { Card, CardItem, Text, H1 } from 'native-base';
+import { challengeDay } from '../../utils/dates';
 import { getChallengeLength, getChallengePhase } from '../../utils/challenge';
 
 import localize from '../../utils/i18n';
-import styles from '../../constants/styles';
 
 
 const ChallengeDay = (props) => {

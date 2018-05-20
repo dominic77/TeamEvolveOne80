@@ -6,8 +6,9 @@ const phaseCut = 'PHASE_CUT';
 
 const plan = {};
 
-plan[phaseCleanseOne] = {
-	WAKEUP: {
+plan[phaseCleanseOne] = [
+	{
+		EVENT: 'WAKEUP',
 		ADVOCARE: {
 			FIBERDRINK: {},
 			SPARK: {},
@@ -15,65 +16,73 @@ plan[phaseCleanseOne] = {
 		},
 		TIPS: ['TIPS_UNFLAVOREDFIBER']
 	},
-	BREAKFAST: {
+	{
+		EVENT: 'BREAKFAST',
 		ADVOCARE: {
 			OMEGAPLEX: { quantity: 3 },
 			BIOTUNE: { optional: true }
 		},
-		MEAL: {
+		MEAL: [{
 			SHAKE: {}
-		},
+		}],
 		TIPS: ['TIP_MUSTHAVEWITHINONEHOUR']
 	},
-	AMSNACK: {
-		MEAL: {
+	{
+		EVENT: 'AMSNACK',
+		MEAL: [{
 			FRUIT: {},
 			VEGETABLES: {},
 			GREENTEA: {}
-		},
+		}],
 		TIPS: ['TIP_EATSERVINGEVERYTHREEHOUR']
 	},
-	LUNCH: {
-		MEAL: {
+	{
+		EVENT: 'LUNCH',
+		MEAL: [{
 			FRUIT: {},
-			VEGETABLES: {},
-		},
+			VEGETABLES: {}
+		}],
 		TIPS: ['TIP_YOUMAYEATEXTRAVEGIS']
 	},
-	PMSNACK: {
-		MEAL: {
+	{
+		EVENT: 'PMSNACK',
+		MEAL: [{
 			FRUIT: {},
 			VEGETABLES: {},
 			GREENTEA: {}
-		},
+		}],
 		TIPS: ['TIP_MAKESUREDRINGHALFGALLON']
 	},
-	DINNER: {
+	{
+		EVENT: 'DINNER',
 		ADVOCARE: {
 			OMEGAPLEX: { quantity: 3 },
 			BIOTUNE: { optional: true }
 		},
-		MEAL: {
+		MEAL: [{
 			FRUIT: {},
-			VEGETABLES: {},
-		},
+			VEGETABLES: {}
+		}]
 	},
-	BEDTIME: {
+	{
+		EVENT: 'BEDTIME',
 		ADVOCARE: {
 			HERBALCLEANSE: { quantity: 2 },
 			PROBIOTIC: {}
 		},
 		TIPS: ['TIP_DONTUSEHERBALCLEANSEWITHINNINETYDAYS']
 	},
-	ANYTIME: {
+	{
+		EVENT: 'ANYTIME',
 		ADVOCARE: {
 			REHYDRATE: {}
 		},
 		TIPS: ['TIP_REHYDRATEMANDATORYONCEPERDAY']
 	}
-};
-plan[phaseCleanse] = {
-	WAKEUP: {
+];
+plan[phaseCleanse] = [
+	{
+		EVENT: 'WAKEUP',
 		ADVOCARE: {
 			FIBERDRINK: {},
 			SPARK: {},
@@ -81,74 +90,260 @@ plan[phaseCleanse] = {
 		},
 		TIPS: ['TIPS_UNFLAVOREDFIBER']
 	},
-	BREAKFAST: {
+	{
+		EVENT: 'BREAKFAST',
 		ADVOCARE: {
 			OMEGAPLEX: { quantity: 3 },
 			BIOTUNE: { optional: true }
 		},
-		MEAL: {
+		MEAL: [{
 			SHAKE: {}
-		},
+		}]
 	},
-	AMSNACK: {
-		MEAL: {
+	{
+		EVENT: 'AMSNACK',
+		MEAL: [{
 			FRUIT: {},
 			FAT: {}
-		},
+		}]
 	},
-	LUNCH: {
-		MEAL: {
+	{
+		EVENT: 'LUNCH',
+		MEAL: [{
 			PROTEIN: {},
 			CARB: {},
-			VEGETABLES: {},
-		},
+			VEGETABLES: {}
+		}]
 	},
-	PMSNACK: {
-		MEAL: {
+	{
+		EVENT: 'PMSNACK',
+		MEAL: [{
 			FRUIT: {},
 			FAT: {}
-		},
+		}],
 		TIPS: ['TIP_MAKESUREDRINGHALFGALLON']
 	},
-	DINNER: {
+	{
+		EVENT: 'DINNER',
 		ADVOCARE: {
 			OMEGAPLEX: { quantity: 3 },
 			BIOTUNE: { optional: true }
 		},
-		MEAL: {
+		MEAL: [{
 			PROTEIN: {},
-			VEGETABLES: {},
-		},
+			VEGETABLES: {}
+		}]
 	},
-	SIXTHMEAL: {
-		MEAL: {
+	{
+		EVENT: 'SIXTHMEAL',
+		MEAL: [{
 			PROTEIN: { quantity: 0.5 },
-			VEGETABLES: {},
-		},
+			VEGETABLES: {}
+		}],
 		TIPS: ['TIP_FINISHGALLONWATER']
 	},
-	BEDTIME: {
+	{
+		EVENT: 'BEDTIME',
 		ADVOCARE: {
 			HERBALCLEANSE: { quantity: 2 },
 			PROBIOTIC: {}
 		},
 		TIPS: ['TIP_DONTUSEHERBALCLEANSEWITHINNINETYDAYS']
 	},
-	ANYTIME: {
+	{
+		EVENT: 'ANYTIME',
 		ADVOCARE: {
 			REHYDRATE: {},
 			SPARK: {}
 		},
 		TIPS: ['TIP_REHYDRATEMANDATORYONCEPERDAY', 'TIP_SPARKONEORTWOPERDAYFORFOCUS']
 	}
-};
-
+];
+plan[phaseBurn] = [
+	{
+		EVENT: 'WAKEUP',
+		ADVOCARE: {
+			MNSBEFOREBREAKFAST: {},
+			PROBIOTIC: {},
+			CATALYST: { quantity: 3, optional: true },
+			BIOTUNE: { optional: true },
+			CRAVECHECK: { notes: 'DAY25ON' }
+		},
+		TIPS: ['TIPS_IFSTOMACHISSENSITIVE']
+	},
+	{
+		EVENT: 'BREAKFAST',
+		MEAL: [{
+			PROTEIN: {},
+			FAT: {}
+		}]
+	},
+	{
+		EVENT: 'AMSNACK',
+		ADVOCARE: {
+			THERMOPLUS: { optional: true }
+		},
+		MEAL: [{
+			FAT: {}
+		}, {
+			FAT: { quantity: 0.5 },
+			PROTEIN: { quantity: 0.5 }
+		}],
+		TIPS: ['TIP_TAKETHERMOPLUSPRIOR']
+	},
+	{
+		EVENT: 'BEFORELUNCH',
+		ADVOCARE: {
+			MNSBEFORELUNCH: {},
+			CRAVECHECK: { notes: 'DAY25ON' }
+		}
+	},
+	{
+		EVENT: 'LUNCH',
+		ADVOCARE: {
+			MNSWHITEPACKETS: {}
+		},
+		MEAL: [{
+			PROTEIN: {},
+			VEGETABLES: {},
+			FAT: { quantity: 0.5 }
+		}],
+		TIPS: ['TIP_MNSWITHMEALAREMULTIVITAMINANDOMEGA']
+	},
+	{
+		EVENT: 'PMSNACK',
+		ADVOCARE: {
+			THERMOPLUS: { optional: true }
+		},
+		MEAL: [{
+			PROTEIN: {}
+		}, {
+			MUSCLEGAINSHAKE: {}
+		}],
+		TIPS: ['TIP_SLIMCANBETAKENFORAPPETITE']
+	},
+	{
+		EVENT: 'DINNER',
+		MEAL: [{
+			PROTEIN: {},
+			VEGETABLES: {},
+			FAT: { quantity: 0.5 }
+		}]
+	},
+	{
+		EVENT: 'SIXTHMEAL',
+		MEAL: [{
+			PROTEIN: { quantity: 0.5 },
+			VEGETABLES: {}
+		}],
+		TIPS: ['TIP_TRYRECIPESONFACEBOOK']
+	},
+	{
+		EVENT: 'BEDTIME',
+		ADVOCARE: {
+			OMEGAPLEX: { quantity: 2 },
+			PROBIOTIC: { optional: true },
+			BIOTUNE: { optional: true }
+		}
+	},
+	{
+		EVENT: 'ANYTIME',
+		ADVOCARE: {
+			SPARK: {}
+		},
+		TIPS: ['TIP_SPARKONEORTWOPERDAYFORFOCUS']
+	}
+];
+plan[phaseRefuel] = [
+	{
+		EVENT: 'WAKEUP',
+		ADVOCARE: {
+			MNSBEFOREBREAKFAST: {},
+			PROBIOTIC: {},
+			CATALYST: { quantity: 3, optional: true },
+			BIOTUNE: { optional: true },
+			CRAVECHECK: { notes: 'DAY25ON' }
+		},
+		TIPS: ['TIPS_IFSTOMACHISSENSITIVE']
+	},
+	{
+		EVENT: 'BREAKFAST',
+		MEAL: [{
+			SHAKE: {}
+		}]
+	},
+	{
+		EVENT: 'AMSNACK',
+		ADVOCARE: {
+			THERMOPLUS: { optional: true }
+		},
+		MEAL: [{
+			FRUIT: {},
+			PROTEIN: { quantity: 0.5 }
+		}],
+		TIPS: ['TIP_TAKETHERMOPLUSPRIOR']
+	},
+	{
+		EVENT: 'BEFORELUNCH',
+		ADVOCARE: {
+			MNSBEFORELUNCH: {},
+			CRAVECHECK: { notes: 'DAY25ON' }
+		}
+	},
+	{
+		EVENT: 'LUNCH',
+		ADVOCARE: {
+			MNSWHITEPACKETS: {}
+		},
+		MEAL: [{
+			PROTEIN: {},
+			VEGETABLES: {},
+			CARB: {}
+		}]
+	},
+	{
+		EVENT: 'PMSNACK',
+		ADVOCARE: {
+			THERMOPLUS: { optional: true }
+		},
+		MEAL: [{
+			PROTEIN: {},
+			CARB: { quantity: 0.5 }
+		}],
+		TIPS: ['TIP_SLIMCANBETAKENFORAPPETITE']
+	},
+	{
+		EVENT: 'DINNER',
+		MEAL: [{
+			PROTEIN: {},
+			VEGETABLES: {}
+		}]
+	},
+	{
+		EVENT: 'BEDTIME',
+		ADVOCARE: {
+			OMEGAPLEX: { quantity: 2 },
+			PROBIOTIC: { optional: true },
+			BIOTUNE: { optional: true }
+		},
+		MEAL: [{
+			PROTEIN: { quantity: 0.5 }
+		}],
+		TIPS: ['TIP_TRYRECIPESONFACEBOOK']
+	},
+	{
+		EVENT: 'ANYTIME',
+		ADVOCARE: {
+			SPARK: {}
+		},
+		TIPS: ['TIP_SPARKONEORTWOPERDAYFORFOCUS']
+	}
+];
 const processChallengPlan = (plan) => {
 	for (var phaseKey in plan) {
-		const phaseObj = plan[phaseKey];
+		const phaseArr = plan[phaseKey];
 
-		for (var eventKey in phaseObj) {
-			const eventObj = phaseObj[eventKey];
+		phaseArr.forEach( (eventObj) => {
 			if (!eventObj.ADVOCARE) {
 				eventObj.ADVOCARE = {};
 			} else {
@@ -165,23 +360,25 @@ const processChallengPlan = (plan) => {
 			}
 
 			if (!eventObj.MEAL) {
-				eventObj.MEAL = {};
+				eventObj.MEAL = [];
 			} else {
-				for (var itemKey in eventObj.MEAL) {
-					const itemObj = eventObj.MEAL[itemKey];
+				eventObj.MEAL.forEach( (mealObj) => {
+					for (var itemKey in mealObj) {
+						const itemObj = mealObj[itemKey];
 
-					if (!itemObj.quantity) {
-						itemObj.quantity = 1;
+						if (!itemObj.quantity) {
+							itemObj.quantity = 1;
+						}
 					}
-				}
+				});
 			}
 
 			if (!eventObj.TIPS) {
 				eventObj.TIPS = [];
 			}
-		}
+		});
 	}
-	
+
 	// console.log(plan);
 	return plan;
 };

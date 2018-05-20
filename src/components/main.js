@@ -11,7 +11,7 @@ import { navigateToSettings, navigateToMyStats, navigateToDietPlan, navigateToFo
 import { MAIN_LOCATION_SETTINGS, MAIN_LOCATION_MYSTATS, MAIN_LOCATION_DIETPLAN, MAIN_LOCATION_FOODMENU } from '../constants/constants';
 
 const MainBare = (props) => {
-	const { startDate, location, title, subtitle } = props;
+	const { location, title, subtitle } = props;
 	const { onSettingsClick, onMyStatsClick, onDietPlanClick, onFoodMenuClick } = props;
 	return (
 		<Container>

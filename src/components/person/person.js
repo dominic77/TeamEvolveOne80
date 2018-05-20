@@ -1,15 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import localize from '../../utils/i18n';
-
 import { Content } from 'native-base';
+
 import ChallengDay from './challengeday';
+import Event from '../plan/event';
+
+import { getChallengeEvents } from '../../utils/challenge';
 
 const PersonBare = (props) => {
+	const events = getChallengeEvents(props.startDate);
 	return (
 		<Content>
 			<ChallengDay startDate={props.startDate} />
+			{events.map( (event) => (<Event key={event.EVENT} event={event}/>))}
 		</Content>
 	);
 };
