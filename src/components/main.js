@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import localize from '../utils/i18n';
 
 import { Container, Header, Body, Title, Subtitle, Content, Footer, FooterTab, Button, Icon } from 'native-base';
+import Person from './person/person';
+import Settings from './settings/settings';
 
 import { navigateToSettings, navigateToMyStats, navigateToDietPlan, navigateToFoodMenu } from '../actions/navigation';
 import { MAIN_LOCATION_SETTINGS, MAIN_LOCATION_MYSTATS, MAIN_LOCATION_DIETPLAN, MAIN_LOCATION_FOODMENU } from '../constants/constants';
@@ -19,8 +21,10 @@ const MainBare = (props) => {
 					<Subtitle>{localize(subtitle)}</Subtitle>
 				</Body>
 			</Header>
-			<Content>
-			</Content>
+			{ location === MAIN_LOCATION_SETTINGS && (<Settings />) }
+			{ location === MAIN_LOCATION_MYSTATS && (<Person />) }
+			{ location === MAIN_LOCATION_DIETPLAN && (<Content />) }
+			{ location === MAIN_LOCATION_FOODMENU && (<Content />) }
 			<Footer>
 				<FooterTab>
 					<Button onPress={onSettingsClick}>
@@ -41,7 +45,7 @@ const MainBare = (props) => {
 	);
 };
 MainBare.propTypes = {
-	startDate: PropTypes.instanceOf(Date),
+	startDate: PropTypes.string,
 	location: PropTypes.string,
 	title: PropTypes.string,
 	subtitle: PropTypes.string,

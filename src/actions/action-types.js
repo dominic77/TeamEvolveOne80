@@ -1,6 +1,0 @@
-export const CHANGE_START_DATE = 'CHANGE_START_DATE';
-
-export const NAV_SETTINGS = 'NAV_SETTINGS';
-export const NAV_MYSTATS = 'NAV_MYSTATS';
-export const NAV_DIETPLAN = 'NAV_DIETPLAN';
-export const NAV_FOODMENU = 'NAV_FOODMENU';

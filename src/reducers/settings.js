@@ -1,12 +1,18 @@
-import { CHANGE_START_DATE } from '../constants/actions';
+import { SETTINGS_CHANGE_START_DATE, SETTINGS_CHANGE_NAME } from '../constants/actions';
+import { todaysDate } from '../utils/dates';
 
 const handlers = {};
 const initialState = {
-	challengStart: new Date()
+	challengStart: todaysDate(),
+	name: ''
 };
 
-handlers[CHANGE_START_DATE] = function(settings, action) {
-	return { ...settings, ...{ date: action.date } };
+handlers[SETTINGS_CHANGE_START_DATE] = function(settings, action) {
+	return { ...settings, ...{ challengStart: action.date } };
+};
+
+handlers[SETTINGS_CHANGE_NAME] = function(settings, action) {
+	return { ...settings, ...{ name: action.name } };
 };
 
 const reducer = (settings = initialState, action, state) => {
