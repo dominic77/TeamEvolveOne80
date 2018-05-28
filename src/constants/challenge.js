@@ -339,13 +339,14 @@ plan[phaseRefuel] = [
 		TIPS: ['TIP_SPARKONEORTWOPERDAYFORFOCUS']
 	}
 ];
+
 const processChallengPlan = (plan) => {
 	for (var phaseKey in plan) {
 		const phaseArr = plan[phaseKey];
 
 		phaseArr.forEach( (eventObj) => {
 			if (!eventObj.ADVOCARE) {
-				eventObj.ADVOCARE = {};
+				// eventObj.ADVOCARE = {};
 			} else {
 				for (var itemKey in eventObj.ADVOCARE) {
 					const itemObj = eventObj.ADVOCARE[itemKey];
@@ -360,7 +361,7 @@ const processChallengPlan = (plan) => {
 			}
 
 			if (!eventObj.MEAL) {
-				eventObj.MEAL = [];
+				// eventObj.MEAL = [];
 			} else {
 				eventObj.MEAL.forEach( (mealObj) => {
 					for (var itemKey in mealObj) {

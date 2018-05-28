@@ -4,26 +4,29 @@ import { connect } from 'react-redux';
 import localize from '../utils/i18n';
 
 import { Container, Header, Body, Title, Subtitle, Content, Footer, FooterTab, Button, Icon } from 'native-base';
-import Person from './person/person';
+
 import Settings from './settings/settings';
+import Person from './person/person';
+import ChallengeDay from './person/challengeday';
+import Plan from './plan/plan';
 
 import { navigateToSettings, navigateToMyStats, navigateToDietPlan, navigateToFoodMenu } from '../actions/navigation';
 import { MAIN_LOCATION_SETTINGS, MAIN_LOCATION_MYSTATS, MAIN_LOCATION_DIETPLAN, MAIN_LOCATION_FOODMENU } from '../constants/constants';
 
 const MainBare = (props) => {
-	const { location, title, subtitle } = props;
+	const { location, title, startDate } = props;
 	const { onSettingsClick, onMyStatsClick, onDietPlanClick, onFoodMenuClick } = props;
 	return (
 		<Container>
 			<Header>
 				<Body>
 					<Title>{localize(title)}</Title>
-					<Subtitle>{localize(subtitle)}</Subtitle>
+					<Subtitle><ChallengeDay startDate={startDate} displayStyle="text" /></Subtitle>
 				</Body>
 			</Header>
 			{ location === MAIN_LOCATION_SETTINGS && (<Settings />) }
 			{ location === MAIN_LOCATION_MYSTATS && (<Person />) }
-			{ location === MAIN_LOCATION_DIETPLAN && (<Content />) }
+			{ location === MAIN_LOCATION_DIETPLAN && (<Plan />) }
 			{ location === MAIN_LOCATION_FOODMENU && (<Content />) }
 			<Footer>
 				<FooterTab>

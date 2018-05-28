@@ -16,3 +16,8 @@ export const challengeDay = (startDate) => {
 
 	return today.diff(start, 'days') + 1;
 };
+
+export const getMinutesInDay = () => {
+	const m = moment();
+	return m.minutes() + (60 * m.hours());
+};

@@ -24,6 +24,7 @@
         "quotes": ["error", "single"],
         "semi": ["error", "always"],
         "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+        "no-console": ["error"],
 
         "react/jsx-uses-vars": ["error"],
         "react/react-in-jsx-scope": ["error"],

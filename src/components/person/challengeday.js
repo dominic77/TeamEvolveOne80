@@ -3,14 +3,21 @@ import PropTypes from 'prop-types';
 
 import { Card, CardItem, Text, H1 } from 'native-base';
 import { challengeDay } from '../../utils/dates';
-import { getChallengeLength, getChallengePhase } from '../../utils/challenge';
+import { getChallengeLength, getChallengePhaseByDay } from '../../utils/challenge';
 
 import localize from '../../utils/i18n';
 
 
 const ChallengeDay = (props) => {
+	const getDay = () => {
+		if (props.challengeDay) {
+			return props.challengeDay;
+		}
+		return challengeDay(props.startDate);
+	};
+
 	const getDayMessage = () => {
-		let day = challengeDay(props.startDate);
+		let day = getDay();
 		let message = '';
 
 		if (day < 1) {
@@ -26,9 +33,14 @@ const ChallengeDay = (props) => {
 		return message;
 	};
 	const getDayPhase = () => {
-		return localize(getChallengePhase(props.startDate));
+		return localize(getChallengePhaseByDay(getDay()));
 	};
 
+	if (props.displayStyle === 'text') {
+		const day = getDayMessage();
+		const phase = getDayPhase();
+		return localize('APP_SUBTITLE', { day, phase });
+	}
 	return (
 		<Card>
 			<CardItem>
@@ -40,8 +52,13 @@ const ChallengeDay = (props) => {
 		</Card>
 	);
 };
+ChallengeDay.defaultProps = {
+	displayStyle: 'default'
+};
 ChallengeDay.propTypes = {
-	startDate: PropTypes.string
+	startDate: PropTypes.string,
+	challengeDay: PropTypes.number,
+	displayStyle: PropTypes.oneOf(['default', 'text'])
 };
 
 export default ChallengeDay;
